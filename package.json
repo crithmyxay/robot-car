@@ -1,0 +1,13 @@
+{
+  "name": "robot-car",
+  "version": "1.0.0",
+  "description": "Car driven with Adruino, Raspeberry Pi, and Node.js",
+  "main": "index.js",
+  "author": "Chris Rithmyxay",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "serialport": "^6.0.5",
+    "socket.io": "^2.0.4"
+  }
+}
