@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.arrowContainers {
+  width: 150px;
+  /* text-align: center; */
+}
+
+.middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  border: 1px solid black;
+}
