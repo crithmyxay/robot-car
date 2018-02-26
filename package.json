@@ -6,7 +6,10 @@
   "author": "Chris Rithmyxay",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "hbs": "^4.0.1",
+    "nodemon": "^1.15.1",
     "serialport": "^6.0.5",
     "socket.io": "^2.0.4"
   }
