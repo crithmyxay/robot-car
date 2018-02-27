@@ -24,8 +24,8 @@ $('[data-right]').click(() => {
   })
 })
 
-$('[data-down]').click(() => {
-  $.get(URL + '/down', () => {
+$('[data-reverse]').click(() => {
+  $.get(URL + '/reverse', () => {
     
   })
 })
