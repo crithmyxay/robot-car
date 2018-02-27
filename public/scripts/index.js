@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000'
+const URL = window.location.href;
 //event listeners that need to send data to the server, which then go to Arduino
 $('[data-up]').click(() => {
   $.get(URL + '/up', () => {
