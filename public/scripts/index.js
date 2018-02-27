@@ -1,20 +1,31 @@
+const URL = 'http://localhost:3000'
 //event listeners that need to send data to the server, which then go to Arduino
-  $('[data-up]').click(() => {
-    console.log('Forward!');
+$('[data-up]').click(() => {
+  $.get(URL + '/up', () => {
+    
   })
+})
 
-  $('[data-left]').click(() => {
-    console.log('Left!');
+$('[data-left]').click(() => {
+  $.get(URL + '/left', () => {
+    
   })
+})
 
-  $('[data-stop]').click(() => {
-    console.log('Stop!');
+$('[data-stop]').click(() => {
+  $.get(URL + '/stop', () => {
+    
   })
+})
 
-  $('[data-right]').click(() => {
-    console.log('Right!');
+$('[data-right]').click(() => {
+  $.get(URL + '/right', () => {
+    
   })
+})
 
-  $('[data-down]').click(() => {
-    console.log('Down!');
+$('[data-down]').click(() => {
+  $.get(URL + '/down', () => {
+    
   })
+})
