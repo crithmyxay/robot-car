@@ -5,7 +5,9 @@ var path = require('path');
 var app = express(); 
 
 var SerialPort = require('serialport');
-var port = new SerialPort('/dev/tty-usbserial1', { autoOpen: false });
+var port = new SerialPort('/dev/tty.usbmodem14311', {
+  baudRate: 9600 
+});
 
 // View Engine
 app.set('view engine', 'hbs');
@@ -27,31 +29,36 @@ app.get('/', function(req, res) {
 app.get('/up', function(req, res) {
   console.log('Forward!');
   res.send('Forward!');
-  post.write('w');
+
+    port.write('w');
 })
 
 app.get('/left', function(req, res) {
   console.log('Left!');
   res.send('Left!');
-  post.write('a');
+
+  port.write('a');
 })
 
 app.get('/stop', function(req, res) {
   console.log('Stop!');
   res.send('Stop!');
-  post.write('e');
+
+  port.write('e');
 })
 
 app.get('/right', function(req, res) {
   console.log('Right!');
   res.send('Right!');
-  post.write('d');
+
+  port.write('d');
 })
 
-app.get('/down', function(req, res) {
-  console.log('Down!');
-  res.send('Down!');
-  post.write('s');
+app.get('/reverse', function(req, res) {
+  console.log('Reverse!');
+  res.send('Reverse!');
+
+  port.write('s');
 })
 
 app.listen(3000, function() {
