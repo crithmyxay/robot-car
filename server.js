@@ -29,35 +29,30 @@ app.get('/', function(req, res) {
 app.get('/up', function(req, res) {
   console.log('Forward!');
   res.send('Forward!');
-
-    port.write('w');
+  port.write('w');
 })
 
 app.get('/left', function(req, res) {
   console.log('Left!');
   res.send('Left!');
-
   port.write('a');
 })
 
 app.get('/stop', function(req, res) {
   console.log('Stop!');
   res.send('Stop!');
-
   port.write('e');
 })
 
 app.get('/right', function(req, res) {
   console.log('Right!');
   res.send('Right!');
-
   port.write('d');
 })
 
 app.get('/reverse', function(req, res) {
   console.log('Reverse!');
   res.send('Reverse!');
-
   port.write('s');
 })
 
