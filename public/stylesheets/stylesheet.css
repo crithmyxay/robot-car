@@ -3,19 +3,27 @@ body {
   justify-content: center;
   align-content: center;
   text-align: center;
+  flex-direction: column;
 }
 
-.arrowContainers {
-  width: 150px;
-  /* text-align: center; */
+#vidBox {
+  display: flex;
+  justify-content: center;
+}
+
+iframe {
+  border: 1px solid black;
+  width: 640px;
+  height: 480px;
 }
 
 .middle {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 button {
   border: 1px solid black;
+  margin: 10px;
 }
