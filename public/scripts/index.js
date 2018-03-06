@@ -1,8 +1,14 @@
 const URL = window.location.href;
 //event listeners that need to send data to the server, which then go to Arduino
-$('[data-up]').click(() => {
-  $.get(URL + 'up', () => {
-    
+$('[data-up]')
+  .mousedown(() => {
+    $.get(URL + 'up', () => {
+      // maybe something else
+    })
+  .mouseup(()=> {
+    $.get(URL + 'stop', () => {
+      // maybe something else
+    })
   })
 })
 

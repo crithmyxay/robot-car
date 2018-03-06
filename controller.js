@@ -16,7 +16,7 @@ var port = new SerialPort('/dev/ttyACM0', {
 controller.on('error', err => console.log(err));
 
 //add event handlers: 
-controller.on('left:move', () => port.write('w') /*console.log('left Moved: ' + data.x + ' | ' + data.y)*/);
+controller.on('left:move', data => console.log('left Moved: ' + data.x + ' | ' + data.y));
  
 controller.on('right:move', data => console.log('right Moved: ' + data.x + ' | ' + data.y));
  
@@ -26,7 +26,7 @@ controller.on('square:press', ()=> console.log('square press'));
  
 controller.on('square:release', () => console.log('square release'));
 
-controller.on('r2:press', ()=> port.write('e'));
+controller.on('r2:press', ()=> console.log('r2 pressed'));
 
 controller.setExtras({
   rumbleLeft:  0,   // 0-255 (Rumble left intensity) 
