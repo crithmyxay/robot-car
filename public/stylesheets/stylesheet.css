@@ -13,8 +13,8 @@ body {
 
 iframe {
   border: 1px solid black;
-  width: 640px;
-  height: 480px;
+  width: 320px;
+  height: 240px;
 }
 
 .middle {
