@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dualshock": "node controller.js"
+    "dualshock": "node public/scripts/controller.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
