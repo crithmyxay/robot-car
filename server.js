@@ -66,6 +66,10 @@ app.listen(3000, function() {
 
 wss.on('connection', function connection(ws) {
   console.log('Websocket is connected ' + ws);
+  ws.on('message', function command(data){
+    console.log(data);
+    port.write(data);
+  })
 })
 
 var server = require('http').createServer(app);
