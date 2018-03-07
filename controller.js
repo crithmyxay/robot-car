@@ -7,20 +7,68 @@ var controller = dualShock(
     accelerometerSmoothing: true,
     analogStickSmoothing: false
   });
+var request = require("request");
 
-var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyACM0', {
-  baudRate: 9600 
-});
+URL = 'http://192.168.2.7:3000/'
 
 controller.on('error', err => console.log(err));
 
 //add event handlers: 
-controller.on('left:move', data => console.log('left Moved: ' + data.x + ' | ' + data.y));
- 
-controller.on('right:move', data => console.log('right Moved: ' + data.x + ' | ' + data.y));
- 
-controller.on('connected', () => console.log('connected'));
+const leftStick = () => {
+  let yArray = [];
+  controller.on('left:move', data => {
+      yArray.push(data.y);
+      console.log(yArray);
+    if (yArray.length === 50) {
+      if (yArray[49] < 115) {
+        request(URL + 'up', function(error, response, body) {
+          console.log('forward');
+          console.log(URL + 'up');       
+        });
+      }
+      else if (yArray[49] > 135) {
+        request(URL + 'reverse', function(error, response, body) {
+          console.log('reverse');
+          console.log(URL + 'reverse');
+        });
+      }
+      return yArray = [];
+    }
+    if (data.y > 115 && data.y < 135) {
+      request(URL + 'stop', function(error, response, body) {
+        console.log('stop');
+      });
+    }
+  });
+}
+
+const rightStick = () => {
+  let yArray = [];
+  controller.on('right:move', data => {
+      yArray.push(data.y);
+      console.log(yArray);
+    if (yArray.length === 50) {
+      if (yArray[49] < 115) {
+        request(URL + 'up', function(error, response, body) {
+          console.log('forward');
+          console.log(URL + 'up');       
+        });
+      }
+      else if (yArray[49] > 135) {
+        request(URL + 'reverse', function(error, response, body) {
+          console.log('reverse');
+          console.log(URL + 'reverse');
+        });
+      }
+      return yArray = [];
+    }
+    if (data.y > 115 && data.y < 135) {
+      request(URL + 'stop', function(error, response, body) {
+        console.log('stop');
+      });
+    }
+  });
+}
  
 controller.on('square:press', ()=> console.log('square press'));
  
@@ -34,9 +82,12 @@ controller.setExtras({
   red:        200,   // 0-255 (Red intensity) 
   green:       80,  // 0-255 (Blue intensity) 
   blue:        30, // 0-255 (Green intensity) 
-  flashOn:     200,  // 0-255 (Flash on time) 
+  flashOn:     225,  // 0-255 (Flash on time) 
   flashOff:    10   // 0-255 (Flash off time) 
 });
+
+leftStick();
+rightStick();
 
 app.listen(3001, function() {
   console.log('Server Started')

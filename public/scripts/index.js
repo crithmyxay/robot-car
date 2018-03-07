@@ -5,12 +5,12 @@ $('[data-up]')
     $.get(URL + 'up', () => {
       // maybe something else
     })
+  })
   .mouseup(()=> {
     $.get(URL + 'stop', () => {
       // maybe something else
     })
   })
-})
 
 $('[data-left]').click(() => {
   $.get(URL + 'left', () => {
@@ -30,8 +30,14 @@ $('[data-right]').click(() => {
   })
 })
 
-$('[data-reverse]').click(() => {
-  $.get(URL + 'reverse', () => {
-    
+$('[data-reverse]')
+  .mousedown(() => {
+    $.get(URL + 'reverse', () => {
+      // maybe something else
+    })
   })
-})
+  .mouseup(()=> {
+    $.get(URL + 'stop', () => {
+      // maybe something else
+    })
+  })
