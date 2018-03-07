@@ -1,10 +1,15 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var app = express(); 
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express(); 
+const WebSocket = require('ws');
 
-var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyACM0', {
+const wss = new WebSocket.Server({
+  port: 3001
+})
+
+const SerialPort = require('serialport');
+const port = new SerialPort('/dev/ttyACM0', {
   baudRate: 9600 
 });
 
@@ -57,6 +62,10 @@ app.get('/reverse', function(req, res) {
 
 app.listen(3000, function() {
   console.log('Server Started')
+})
+
+wss.on('connection', function connection(ws) {
+  console.log('Websocket is connected ' + ws);
 })
 
 var server = require('http').createServer(app);
