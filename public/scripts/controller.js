@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const ws = new WebSocket('ws://192.168.2.7:3001');
+const ws = new WebSocket('ws://10.0.1.7:3001');
 const dualShock = require('dualshock-controller');
 const controller = dualShock(
   {
