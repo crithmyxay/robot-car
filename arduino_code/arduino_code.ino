@@ -20,6 +20,7 @@ void forward(){
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH);
   Serial.println("Forward");
+  Serial.flush();
 }
 
 void forwardLeft(){ 
@@ -30,6 +31,7 @@ void forwardLeft(){
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,LOW);
   Serial.println("Left Forward");
+  Serial.flush();
 }
 
 void forwardRight(){ 
@@ -40,6 +42,7 @@ void forwardRight(){
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH);
   Serial.println("Right Forward");
+  Serial.flush();
 }
 
 void back(){
@@ -50,6 +53,7 @@ void back(){
   digitalWrite(IN3,HIGH);
   digitalWrite(IN4,LOW);
   Serial.println("Back");
+  Serial.flush();
 }
 
 void backLeft(){
@@ -60,6 +64,7 @@ void backLeft(){
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,LOW);
   Serial.println("Left Back");
+  Serial.flush();
 }
 
 void backRight(){
@@ -70,6 +75,7 @@ void backRight(){
   digitalWrite(IN3,HIGH);
   digitalWrite(IN4,LOW);
   Serial.println("Right Back");
+  Serial.flush();
 }
 
 void left(){
@@ -80,6 +86,7 @@ void left(){
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH); 
   Serial.println("Left");
+  Serial.flush();
 }
 
 void right(){
@@ -90,18 +97,21 @@ void right(){
   digitalWrite(IN3,HIGH);
   digitalWrite(IN4,LOW);
   Serial.println("Right");
+  Serial.flush();
 }
 
 void stop(){
   digitalWrite(ENA,LOW);
   digitalWrite(ENB,LOW);
   Serial.println("Stop!");
+  Serial.flush();
 }
 
 void stateChange(){
   state = !state;
   digitalWrite(LED, state);
-  Serial.println("Light");  
+  Serial.println("Light");
+  Serial.flush();
 }
 
 void setup() { 
