@@ -14,6 +14,7 @@ controller.on('error', err => console.log(err));
 ws.on('open', function open() {
   const leftStick = () => {
     let yArray = [];
+    let lastCommand = '';
     controller.on('left:move', data => {
       yArray.push(data.y);
       console.log(yArray);
@@ -21,15 +22,20 @@ ws.on('open', function open() {
         if (yArray[34] < 115) {
             console.log('w')
             ws.send('w');
+            lastCommand = 'w'
         }
         else if (yArray[34] > 135) {
             console.log('s');
             ws.send('s');
+            lastCommand = 's'
         }
         return yArray = [];
       }
       if (data.y > 115 && data.y < 135) {
-        ws.send('e');
+        if (lastCommand !== 'e') {
+          ws.send('e');
+          lastCommand = 'e'
+        }
       }
     });
   }
