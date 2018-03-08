@@ -4,6 +4,7 @@ body {
   align-content: center;
   text-align: center;
   flex-direction: column;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 #vidBox {
