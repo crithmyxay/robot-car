@@ -42,6 +42,7 @@ ws.on('open', function open() {
 
   const rightStick = () => {
     let xArray = [];
+    let lastCommand = '';
     controller.on('right:move', data => {
       xArray.push(data.x);
       console.log(xArray);
@@ -49,15 +50,18 @@ ws.on('open', function open() {
         if (xArray[34] < 115) {
             console.log('a')
             ws.send('a');
+            let lastCommand = 'a';
         }
         else if (xArray[34] > 135) {
             console.log('d');
             ws.send('d');
+            let lastCommand = 'd';
         }
         return xArray = [];
       }
       if (data.x > 115 && data.x < 135) {
         ws.send('e');
+        let lastCommand = 'e';
       }
     });
   }
